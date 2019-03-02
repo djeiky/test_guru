@@ -9,7 +9,7 @@ end
 num = 0
 Category.all.each do |c|
   num +=1
-  c.tests.find_or_create_by(title: "Test - #{num}", level: num)
+  c.tests.find_or_create_by(title: "Test - #{num}", level: num, author_id: User.first.id)
 end
 
 Test.all.each do |test|
