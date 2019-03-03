@@ -6,7 +6,7 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: "User", foreign_key: :author_id
 
   validates :category, presence: true
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: {scope: :level}
   validates :level, presence: true, numericality: {:greater_of => 0}
 
   scope :easy, -> {where(level: [0,1])}
