@@ -1,0 +1,8 @@
+%h1
+  =@test.title
+- @test.questions.each do |q|
+  %p
+    = q.id
+    = q.body
+    = link_to "Show", test_question_path(@test, q)
+    = link_to "Delete", test_question_path(@test, q), method: :delete, data: {confirm: "Are you shure?"}
