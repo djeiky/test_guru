@@ -71,3 +71,6 @@ bower.json
 Session.vim
 .netrwhist
 *~
+
+#byebug_hystort
+.byebug_history
