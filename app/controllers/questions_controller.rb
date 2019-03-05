@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_test
+  before_action :set_test, only: [:index, :new, :create]
   before_action :set_question, only: [:show, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_question_not_found
@@ -15,8 +15,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(question_params)
-    redirect_to test_questions_path(@test)
+    question = @test.questions.new(question_params)
+    if question.save
+      redirect_to test_questions_path(@test)
+    else
+      render html: "error saving question"
+    end
   end
 
   def destroy
