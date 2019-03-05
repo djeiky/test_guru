@@ -1,0 +1,14 @@
+%tr
+  %td
+    = test.id
+  %td
+    = test.title
+  %td
+    = test.level
+  %td
+    = test.questions.length
+  %td
+    = test.author.username
+  %td
+    = link_to "Show test", test_questions_path(test)
+
