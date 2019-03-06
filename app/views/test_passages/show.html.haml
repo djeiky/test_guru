@@ -1,0 +1,17 @@
+%h1
+  You are passing - 
+  = @test_passage.test.title
+%p
+  Question - 
+  = @test_passage.question_number
+  of
+  = @test_passage.test.questions.count
+%p
+  = @test_passage.current_question.body
+= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f|
+  = f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |c|
+    %p
+      = c.check_box
+      = c.label
+  = f.submit "Next"
+

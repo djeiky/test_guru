@@ -10,5 +10,7 @@
   %td
     = test.author.username
   %td
+    = button_to "Start", start_test_path(test)
+  %td
     = link_to "Show test", test_questions_path(test)
 
