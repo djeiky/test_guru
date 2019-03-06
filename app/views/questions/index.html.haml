@@ -1,10 +1,16 @@
 %h1
   =@test.title
-- @test.questions.each do |q|
-  %p
-    = q.id
-    = q.body
-    = link_to "Show", question_path(q)
-    = link_to "Delete", question_path(q), method: :delete, data: {confirm: "Are you shure?"}
+%table
+  %thead
+    %th
+      ID
+    %th
+      Body
+    %th{colspan: 3}
+      Actions
+  %tbody
+    = render @test.questions
 %p
   = link_to "New_question", new_test_question_path(@test)
+%p
+  = link_to "Back to Tests", root_path

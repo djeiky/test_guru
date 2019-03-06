@@ -1,0 +1,6 @@
+= form_for [@test, @question], local: true do |f|
+  = render "shared/errors", resource: @question
+  = f.label :body
+  = f.text_area :body
+  = f.hidden_field :test_id, value: @question.test_id
+  = f.submit
