@@ -1,0 +1,18 @@
+%h1
+  Test:
+  = @test_passage.test.title
+%p
+  Your result:
+  - if @test_passage.success?
+    %span.success_test
+      passed
+      = @test_passage.percent
+      \%
+  -else
+    %span.failed_test
+      failed
+      = @test_passage.percent
+      \%
+
+%p
+  = link_to "Tests list", tests_path
