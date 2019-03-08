@@ -1,0 +1,14 @@
+%nav
+  = link_to "TestGuru", root_path
+  %ul
+    - if logged_in?
+      %li
+        %span
+          = "Welcome, #{current_user.email}"
+        = link_to "Log Out", log_out_path
+    - else
+      %li
+        = link_to "Register", sign_up_path
+      %li
+        = link_to "Log In", log_in_path
+
