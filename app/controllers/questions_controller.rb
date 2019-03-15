@@ -2,9 +2,6 @@ class QuestionsController < ApplicationController
   before_action :set_test, only: [:index]
   before_action :set_question, only: [:show]
 
-  def index
-  end
-
   def show
   end
 

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(user)
-    flash[:notice] = "Hello #{user.last_name.present? ? user.last_name : user.email}"
+    flash[:notice] = user.greet_user
     user.admin? ? admin_tests_path : root_path
   end
 
