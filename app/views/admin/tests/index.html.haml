@@ -1,0 +1,19 @@
+%h1 Tests List
+= link_to "New Test", new_admin_test_path
+%table
+  %thead
+    %tr
+      %th
+        ID
+      %th
+        Title
+      %th
+        Level
+      %th
+        Questions count
+      %th
+        Author
+      %th{colspan: 2}
+        Actions
+  %tbody
+    = render @tests

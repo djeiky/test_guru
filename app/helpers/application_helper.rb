@@ -8,9 +8,9 @@ module ApplicationHelper
     link_to name, "https://github.com/#{name}/#{repo}", target: :_blank
   end
 
-  def flash_messages
-    flash.map do |key, value|
-      content_tag :p, value, class: "flush-#{@key}"
-    end.join.html_safe
-  end
+  #def flash_messages
+  #  flash.map do |key, value|
+  #    content_tag :p, value, class: "flush-#{@key}"
+  #  end.join.html_safe
+  #end
 end
