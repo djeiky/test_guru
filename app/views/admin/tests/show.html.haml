@@ -1,0 +1,9 @@
+%p
+  = @test.title
+%p
+  %ol
+    = render @test.questions
+%p
+  = link_to "New question", new_admin_test_question_path(@test)
+%p
+= link_to "Back", admin_tests_path
