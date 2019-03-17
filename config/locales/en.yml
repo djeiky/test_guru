@@ -1,34 +1,78 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        create: "New Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+    select:
+      prompt: "Choose Category" 
+
+  tests:
+    index:
+      header: "Available Tests"
+      questions_count: "Questions Count"
+      actions: "Actions"
+    test:
+      start: "Start Test"
+
+  test_passages:
+    show:
+      test_passage: "You are passing - %{test_title}"
+      question: "Question"
+      is: "of"
+      submit: "Answer"
+    result:
+      your_result: "Your result"
+      success: "Success"
+      failed: "Failed"
+      return: "Back to tests list"
+
+  shared:
+    menu:
+      title: "Test Guru"
+      login: "Log In"
+      logout: "Log out"
+      register: "Register"
+      greetings: "Hello"
+    errors:
+      header:
+        one: "%{count} error found"
+        other: "%{count} errors found"
+  devise:
+    registrations:
+      new:
+        sign_up: "Registration"
+    sessions:
+      new:
+        sign_in: "Log In"
+        remember_me: "Remember me"
+        commit: "Log In"
+  admin:
+    tests:
+      index:
+        header: "Available Tests"
+        questions_count: "Questions count"
+        actions: "Actions"
+        new_test: "New Test"
+      new:
+        back: "Back to tests list"
+      show:
+        back: "Back to tests list"
+        new_question: "New question"
+      edit:
+        back: "Back to tests list"
+      test:
+        show: "Show"
+
+    questions:
+      index:
+        back: "Back to tests list"
+        new_question: "New question"
+      question:
+        edit: "Edit"
+        delete: "Delete"
+        show: "Show"
 

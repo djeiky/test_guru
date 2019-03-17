@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      category: "Category"
+
+    attributes:
+      test:
+        id: "ID"
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
+      category:
+        title: "Category"
+

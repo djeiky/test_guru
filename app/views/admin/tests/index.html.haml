@@ -1,19 +1,14 @@
 %h1 Tests List
-= link_to "New Test", new_admin_test_path
+= link_to t(".new_test"), new_admin_test_path
 %table
   %thead
     %tr
+      - human_names(Test, [:id, :title, :level, :category, :author]).each do |name|
+        %th
+          = name
       %th
-        ID
-      %th
-        Title
-      %th
-        Level
-      %th
-        Questions count
-      %th
-        Author
+        = t(".questions_count")
       %th{colspan: 2}
-        Actions
+        = t(".actions")
   %tbody
     = render @tests

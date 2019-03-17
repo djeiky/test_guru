@@ -6,9 +6,11 @@
   %td
     = test.level
   %td
-    = test.questions.length
+    = test.category.title
   %td
     = test.author.email
   %td
-    = link_to "Show test", admin_test_questions_path(test)
+    = test.questions.length
+  %td
+    = link_to t(".show"), admin_test_questions_path(test)
 

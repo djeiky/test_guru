@@ -1,18 +1,14 @@
-%h1 Tests List
+%h1
+  = t(".header")
 %table
   %thead
     %tr
+      - human_names(Test, [:id, :title, :level, :category, :author]).each do |name|
+        %th
+          = name
       %th
-        ID
-      %th
-        Title
-      %th
-        Level
-      %th
-        Questions count
-      %th
-        Author
+        = t(".questions_count")
       %th{colspan: 2}
-        Actions
+        = t(".actions")
   %tbody
     = render @tests

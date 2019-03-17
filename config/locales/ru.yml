@@ -1,34 +1,81 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 ru:
-  hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+    select:
+      prompt: "Выберите Категорию" 
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      questions_count: "Кол-во вопросов"
+      actions: "Действия"
+    test:
+      start: "Начать тест"
+
+  test_passages:
+    show:
+      test_passage: "Вы проходите тест - %{test_title}"
+      question: "Вопрос"
+      is: "из"
+      submit: "Ответить"
+    result:
+      your_result: "Ваш результат"
+      success: "Успешно"
+      failed: "Не успешно"
+      return: "Вернутся к списку тестов"
+
+  shared:
+    menu:
+      title: "Тест Гуру"
+      login: "Войти"
+      logout: "Выйти"
+      register: "Зарегистрироваться"
+      greetings: "Здравстуйте"
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        namy: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибки"
+  devise:
+    registrations:
+      new:
+        sign_up: "Регистрация"
+    sessions:
+      new:
+        sign_in: "Вход"
+        remember_me: "Запомнить меня"
+        commit: "Войти"
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        questions_count: "Кол-во вопросов"
+        actions: "Действия"
+        new_test: "Новый тест"
+      new:
+        back: "К списку тестов"
+      show:
+        back: "К списку тестов"
+        new_question: "Новый вопрос"
+      edit:
+        back: "К списку тестов"
+      test:
+        show: "Показать"
+
+    questions:
+      index:
+        back: "К списку тестов"
+        new_question: "Новый вопрос"
+      question:
+        edit: "Редактировать"
+        delete: "Удалить"
+        show: "Показать"
+
 
