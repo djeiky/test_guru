@@ -1,14 +1,14 @@
 %h1
   = t(".header")
-%table
+%table.table.table-striped.table-sm
   %thead
     %tr
       - human_names(Test, [:id, :title, :level, :category, :author]).each do |name|
-        %th
+        %th{scope: "col"}
           = name
-      %th
+      %th{scope: "col"}
         = t(".questions_count")
-      %th{colspan: 2}
+      %th{scope: "col", colspan: 2}
         = t(".actions")
   %tbody
     = render @tests

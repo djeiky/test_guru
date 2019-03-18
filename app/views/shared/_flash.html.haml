@@ -1,2 +1,3 @@
 - flash.each do |key, value|
-  = content_tag :p, value, class: "flash #{@key}"
+  - css_class = key == "alert" ? "danger" : "success"
+  = content_tag :p, value, class: "alert alert-#{css_class}"

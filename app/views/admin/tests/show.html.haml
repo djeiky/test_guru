@@ -4,6 +4,6 @@
   %ol
     = render @test.questions
 %p
-  = link_to t(".new_question"), new_admin_test_question_path(@test)
+  = link_to t(".new_question"), new_admin_test_question_path(@test), class: "btn btn-primary"
 %p
-= link_to t(".back"), admin_tests_path
+= link_to t(".back"), admin_tests_path, class: "btn btn-primary"
