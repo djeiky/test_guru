@@ -13,4 +13,13 @@ module ApplicationHelper
       content_tag :p, value, class: "flush-#{@key}"
     end.join.html_safe
   end
+
+  def human_names(klass, fields_array)
+    names = fields_array.map {|f| klass.human_attribute_name(f)}
+    if block_given?
+      names.each {|name| yield(name)}
+    else
+      names
+    end
+  end
 end

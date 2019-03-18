@@ -6,6 +6,6 @@
   = f.label :level
   = f.number_field :level, in: 1..10
   %br
-  = f.select :category_id, @categories.collect {|c| [c.title, c.id]}
+  = f.collection_select :category_id, @categories, :id, :title, prompt: true
   %br
   = f.submit

@@ -6,9 +6,11 @@
   %td
     = test.level
   %td
-    = test.questions.length
+    = test.category.title
   %td
     = test.author.email
   %td
-    = button_to "Start", start_test_path(test)
+    = test.questions.length
+  %td
+    = button_to t(".start"), start_test_path(test)
 

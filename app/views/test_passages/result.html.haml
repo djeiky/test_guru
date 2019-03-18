@@ -2,17 +2,17 @@
   Test:
   = @test_passage.test.title
 %p
-  Your result:
+  = t(".your_result")
   - if @test_passage.success?
     %span.success_test
-      passed
+      = t(".success")
       = @test_passage.percent
       \%
   -else
     %span.failed_test
-      failed
+      = t(".failed")
       = @test_passage.percent
       \%
 
 %p
-  = link_to "Tests list", tests_path
+  = link_to t(".return"), tests_path

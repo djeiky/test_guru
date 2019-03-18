@@ -1,10 +1,9 @@
 %h1
-  You are passing - 
-  = @test_passage.test.title
+  = t(".test_passage", test_title: @test_passage.test.title)
 %p
-  Question - 
+  = t(".question")
   = @test_passage.question_number
-  of
+  = t(".is")
   = @test_passage.test.questions.count
 %p
   = @test_passage.current_question.body
@@ -13,5 +12,5 @@
     %p
       = c.check_box
       = c.label
-  = f.submit "Next"
+  = f.submit t(".submit")
 
