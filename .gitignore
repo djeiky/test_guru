@@ -74,3 +74,6 @@ Session.vim
 
 #byebug_hystort
 .byebug_history
+
+#enviroments
+.env

@@ -1,0 +1,21 @@
+%h1 Tests List
+= link_to t(".new_test"), new_admin_test_path, class: "btn btn-primary"
+%table.table.table-striped.table-sm
+  %thead
+    %tr
+      %th{scope: "col"}
+        Question
+      %th{scope: "col"}
+        Gist Url
+      %th{scope: "col", colspan: 2}
+        Username
+  %tbody
+    - @gists.each do |gist|
+      %tr
+        %td
+          = link_to gist.question.short_name, admin_question_path(gist.question)
+        %td
+          = link_to gist.hash, gist.url, target: :blank
+        %td
+          = gist.user.email
+

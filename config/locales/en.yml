@@ -24,11 +24,15 @@ en:
       question: "Question"
       is: "of"
       submit: "Answer"
+      gist_question: "Create Gist"
     result:
       your_result: "Your result"
       success: "Success"
       failed: "Failed"
       return: "Back to tests list"
+    gist:
+      success: "Your Gist successfully created - %{link}"
+      failed: "Oops, failed to create Gist"
 
   shared:
     menu:
@@ -51,6 +55,11 @@ en:
         sign_in: "Log In"
         remember_me: "Remember me"
         commit: "Log In"
+
+  services:
+    gist_question_service:
+      description: "Gist on question %{title} from Test Guru"
+
   admin:
     tests:
       index:
