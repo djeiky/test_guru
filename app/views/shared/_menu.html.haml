@@ -1,14 +1,21 @@
-%nav
-  = link_to t(".title"), root_path
-  %ul
-    - if user_signed_in?
-      %li
-        %span
-          = "#{t('.greetings')}, #{current_user.email}"
-        = link_to t(".logout"), destroy_user_session_path, method: :delete
-    - else
-      %li
-        = link_to t(".register"), new_user_registration_path
-      %li
-        = link_to t(".login"), new_user_session_path(current_user)
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light.rounded
+  = link_to t(".title"), root_path, class: "navbar-brand"
+  %button.navbar-toggler{"aria-controls" => "navbarsExample09", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#collapsed_menu", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #collapsed_menu.collapse.navbar-collapse
+    %ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        -if current_user.admin?
+          %li.nav_item
+            = link_to t('.admin_resources'), admin_tests_path, class: "nav-link"
+
+        %li.nav_item
+          %span
+            = "#{t('.greetings')}, #{current_user.email}"
+          = link_to t(".logout"), destroy_user_session_path, method: :delete
+      - else
+        %li.nav_item
+          = link_to t(".register"), new_user_registration_path, class: "nav-link"
+        %li.nav_item
+          = link_to t(".login"), new_user_session_path(current_user), class: "nav-link"
 

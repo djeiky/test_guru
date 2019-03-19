@@ -37,6 +37,7 @@ ru:
       logout: "Выйти"
       register: "Зарегистрироваться"
       greetings: "Здравстуйте"
+      admin_resources: "Панель управления"
     errors:
       header:
         one: "Обнаружена %{count} ошибка"

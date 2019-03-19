@@ -70,3 +70,7 @@ gem 'haml-rails'
 
 #auth
 gem 'devise'
+
+#ui
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'

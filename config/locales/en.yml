@@ -37,6 +37,7 @@ en:
       logout: "Log out"
       register: "Register"
       greetings: "Hello"
+      admin_resources: "Admin panel"
     errors:
       header:
         one: "%{count} error found"

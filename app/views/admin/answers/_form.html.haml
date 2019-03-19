@@ -1,13 +1,15 @@
-= form_for [:admin, @question, @answer], local: true do |f|
-  = render "shared/errors", resource: @answer
+.card-body
+  = form_for [:admin, @question, @answer], local: true do |f|
+    .form-group
+      = render "shared/errors", resource: @answer
 
-  %p
-    = f.label :body
-    = f.text_area :body, rows: 10, cols: 100
+    %p
+      = f.label :body
+      = f.text_area :body, rows: 10, cols: 100, class: "form-control"
 
-  %p
-    = f.label :correct
-    = f.check_box :correct
+    %p
+      = f.label :correct
+      = f.check_box :correct
 
-  .actions
-    = f.submit
+    .actions
+      = f.submit

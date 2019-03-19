@@ -1,11 +1,13 @@
-= form_for [:admin, @test], local: true do |f|
-  = render "shared/errors", resource: @test
-  = f.label :title
-  = f.text_field :title
-  %br
-  = f.label :level
-  = f.number_field :level, in: 1..10
-  %br
-  = f.collection_select :category_id, @categories, :id, :title, prompt: true
-  %br
-  = f.submit
+.card-body
+  = form_for [:admin, @test], local: true do |f|
+    .form-group
+      = render "shared/errors", resource: @test
+      = f.label :title
+      = f.text_field :title, class: "form-control"
+      %br
+      = f.label :level
+      = f.number_field :level, in: 1..10, class: "form-control"
+      %br
+      = f.collection_select( :category_id, @categories, :id, :title, {prompt: true}, {class: "form-control"})
+      %br
+      = f.submit
