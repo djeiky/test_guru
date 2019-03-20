@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, path: :gurus, path_names: {sign_in: :log_in, sign_out: :log_out}
   root to: 'tests#index'
 
@@ -14,10 +15,12 @@ Rails.application.routes.draw do
   resources :test_passages, only: [:show, :update] do
     member do
       get :result
+      post :gist
     end
   end
 
   namespace :admin do
+    resources :gists, only: [:index]
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, shallow: true

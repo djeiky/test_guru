@@ -24,11 +24,15 @@ ru:
       question: "Вопрос"
       is: "из"
       submit: "Ответить"
+      gist_question: "Создать Gist"
     result:
       your_result: "Ваш результат"
       success: "Успешно"
       failed: "Не успешно"
       return: "Вернутся к списку тестов"
+    gist:
+      success: "Ваш Gist успешно создан - %{link}"
+      failed: "Упс, произошла ошибка при создании Gist"
 
   shared:
     menu:
@@ -53,6 +57,11 @@ ru:
         sign_in: "Вход"
         remember_me: "Запомнить меня"
         commit: "Войти"
+
+  services:
+    gist_question_service:
+      description: "Gist по вопросу %{title} от Тест Гуру"
+
   admin:
     tests:
       index:
