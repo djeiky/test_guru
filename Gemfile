@@ -70,7 +70,7 @@ gem 'rails-i18n'
 gem 'haml-rails'
 
 #auth
-gem 'devise'
+gem 'devise', '~> 4.6.0'
 
 #ui
 gem 'bootstrap', '~> 4.3.1'
@@ -78,3 +78,4 @@ gem 'jquery-rails'
 
 #github gist
 gem 'octokit'
+gem 'octicons_helper'

@@ -17,6 +17,8 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
+    = octicon "alert", class: "hide"
+    = octicon "check", class: "hide"
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

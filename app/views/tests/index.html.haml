@@ -3,9 +3,16 @@
 %table.table.table-striped.table-sm
   %thead
     %tr
-      - human_names(Test, [:id, :title, :level, :category, :author]).each do |name|
+      %th{scope: "col"}
+        ID
+      %th.sort-by-title.pointer{scope: "col"}
+        = Test.human_attribute_name :title
+        = octicon "arrow-up", class: "text-success hide"
+        = octicon "arrow-down", class: "text-success"
+      - human_names(Test, [:level, :category, :author]).each do |name|
         %th{scope: "col"}
           = name
+
       %th{scope: "col"}
         = t(".questions_count")
       %th{scope: "col", colspan: 2}
