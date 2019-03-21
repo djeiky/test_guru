@@ -76,6 +76,9 @@ en:
         back: "Back to tests list"
       test:
         show: "Show"
+        edit: "Edit"
+      form_inline:
+        submit: "Ok"
 
     questions:
       index:
