@@ -8,6 +8,7 @@ check_password_confirmation = ->
   if password_confirmation.length == 0
     $(".octicon-alert").addClass('hide')
     $(".octicon-check").addClass('hide')
+    return
 
   if password_confirmation != password
     $(".octicon-alert").removeClass('hide')
