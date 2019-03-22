@@ -42,6 +42,8 @@ en:
       register: "Register"
       greetings: "Hello"
       admin_resources: "Admin panel"
+      feedback: "Write to us"
+
     errors:
       header:
         one: "%{count} error found"
@@ -89,3 +91,7 @@ en:
         delete: "Delete"
         show: "Show"
 
+  feedback:
+    new:
+      feedback_title: "Напишите нам"
+      send: "Отправить"

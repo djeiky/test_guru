@@ -5,11 +5,13 @@
   #collapsed_menu.collapse.navbar-collapse
     %ul.navbar-nav.ml-auto
       - if user_signed_in?
+        %li.nav-item
+          = link_to t(".feedback"), feedback_new_path, class: "nav-link"
         -if current_user.admin?
           %li.nav-item
             = link_to t('.admin_resources'), admin_tests_path, class: "nav-link"
-          %li.nav-item
-            = link_to t('Gists'), admin_gists_path, class: "nav-link"
+        %li.nav-item
+          = link_to t('Gists'), admin_gists_path, class: "nav-link"
 
         %li.nav-item
           %span
