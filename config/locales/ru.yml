@@ -78,6 +78,9 @@ ru:
         back: "К списку тестов"
       test:
         show: "Показать"
+        edit: "Редактировать"
+      form_inline:
+        submit: "Ok"
 
     questions:
       index:
