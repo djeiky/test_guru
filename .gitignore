@@ -41,7 +41,7 @@ rerun.txt
 pickle-email-*.html
 
 # database.yml
-/config/database.yum
+/config/database.yml
 
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
