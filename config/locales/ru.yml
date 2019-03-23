@@ -25,6 +25,8 @@ ru:
       is: "из"
       submit: "Ответить"
       gist_question: "Создать Gist"
+      noquestions: "Вопросов не обнаружено"
+      back: "Назад к списку вопросов"
     result:
       your_result: "Ваш результат"
       success: "Успешно"

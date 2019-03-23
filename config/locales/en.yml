@@ -25,6 +25,8 @@ en:
       is: "of"
       submit: "Answer"
       gist_question: "Create Gist"
+      noquestions: "No questions found"
+      back: "Back to tests list"
     result:
       your_result: "Your result"
       success: "Success"
