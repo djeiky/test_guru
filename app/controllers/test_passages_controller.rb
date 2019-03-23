@@ -12,8 +12,8 @@ class TestPassagesController < ApplicationController
     gist_resp = servise.call
 
     return_message = {}
-
-    if servise.response_status == (:created || :ok)
+    if servise.response_status == (Rack::Utils::SYMBOL_TO_STATUS_CODE[:created] ||
+                                    Rack::Utils::SYMBOL_TO_STATUS_CODE[:ok])
       gist_link = "https://gist.github.com/#{gist_resp.id}"
       gist = Gist.new(question: @test_passage.current_question,
                       user: current_user,
