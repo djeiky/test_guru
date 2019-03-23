@@ -25,6 +25,8 @@ ru:
       is: "из"
       submit: "Ответить"
       gist_question: "Создать Gist"
+      noquestions: "Вопросов не обнаружено"
+      back: "Назад к списку вопросов"
     result:
       your_result: "Ваш результат"
       success: "Успешно"
@@ -42,6 +44,7 @@ ru:
       register: "Зарегистрироваться"
       greetings: "Здравстуйте"
       admin_resources: "Панель управления"
+      feedback: "Написать нам"
     errors:
       header:
         one: "Обнаружена %{count} ошибка"
@@ -91,4 +94,7 @@ ru:
         delete: "Удалить"
         show: "Показать"
 
-
+  feedback:
+    new:
+      feedback_title: "Напишите нам"
+      send: "Отправить"

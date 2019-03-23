@@ -2,32 +2,32 @@
   Category.find_or_create_by(title: title)
 end
 
-%w[Ivan Aleksandr Uriy].each do |name|
-  User.find_or_create_by(username: name)
+@admin = Admin.where(email: "djeiky@gmail.com").first
+unless @admin
+  @admin = Admin.new
+  @admin.email = "djeiky@gmail.com"
+  @admin.first_name = "E"
+  @admin.last_name = "A"
+  @admin.password = "test123"
+  @admin.password_confirmation = "test123"
+  @admin.save
+end
+puts "admin ---------- #{@admin.id}"
+
+@test = Test.find_or_create_by(title: "Rails intro") do |t|
+  t.level = 1
+  t.category_id = Category.find_by(title: "Rails").id
+  t.author_id = @admin.id
+end
+@question = Question.find_or_create_by(body: "What is Rails?") do |q|
+  q.test_id = @test.id
+end
+Answer.find_or_create_by(body: "Framework") do |a|
+  a.correct = true
+  a.question_id = @question.id
+end
+Answer.create(body: "Programm language") do |a|
+  a.correct = false
+  a.question_id = @question.id
 end
 
-num = 0
-Category.all.each do |c|
-  num +=1
-  c.tests.find_or_create_by(title: "Test - #{num}", level: num, author_id: User.first.id)
-end
-
-Test.all.each do |test|
-  test.questions = []
-  3.times do |i|
-    test.questions.find_or_create_by(body: "Question - #{i}")
-  end
-end
-
-Question.all.each do |question|
-  question.answers = []
-  3.times do |i|
-    question.answers.find_or_create_by(body: "Answer body - #{i}", correct: false)
-  end
-end
-
-User.all.each do |user|
-  3.times do |i|
-    user.user_tests.find_or_create_by(user_id: user.id, test_id: i)
-  end
-end

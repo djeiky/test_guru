@@ -28,4 +28,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'feedback/new'
+  post 'feedback/send_email'
+
 end

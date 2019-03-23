@@ -1,0 +1,6 @@
+%h2
+  = t(".feedback_title")
+= form_with url: feedback_send_email_path, local: true, method: :post do |f|
+  = f.text_area :message, cols: 50, rows: 15
+  %br
+  = f.submit t(".send")

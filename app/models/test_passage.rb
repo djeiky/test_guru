@@ -26,7 +26,7 @@ class TestPassage < ApplicationRecord
   end
 
   def question_number
-    test.questions.order(id: :asc).index(current_question) + 1
+    test.questions.any? ? test.questions.order(id: :asc).index(current_question) + 1 : 0
   end
 
 private
