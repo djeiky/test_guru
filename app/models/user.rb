@@ -13,9 +13,25 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :author, class_name: "Test", foreign_key: :author_id
   has_many :gists
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :email, presence: true, uniqueness: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+
+  def completed_tests(category: nil, level: nil)
+    tests.by_category(category).by_level(level).where(test_passages: {passed: true})
+  end
+
+  def add_badge(badge)
+    user_badge = user_badges.find_by(badge_id: badge.id)
+    if user_badge
+      user_badge.badges_count += 1
+      user_badge.save!
+    else
+      user_badges.create!(badge_id: badge.id, badges_count: 1)
+    end
+  end
 
   def greet_user
     "Hello #{self.last_name.present? ? self.last_name : self.email}"

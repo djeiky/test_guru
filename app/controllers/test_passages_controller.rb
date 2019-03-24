@@ -5,6 +5,9 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+    @test_passage.set_passed
+    @new_badges = BadgeService.new(@test_passage).gain_badges
+    @new_badges.each {|badge| current_user.add_badge(badge)}
   end
 
   def gist

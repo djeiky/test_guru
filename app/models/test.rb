@@ -15,6 +15,17 @@ class Test < ApplicationRecord
 
   scope :hard, -> {where(level: [5..Float::INFINITY])}
 
+  scope :by_category, -> (category) {
+    if category.present?
+      where(category_id: category.id)
+    end
+  }
+  scope :by_level, -> (level) {
+    if level.present? 
+      where(level: level)
+    end
+  }
+
   def self.tests_by_category(category)
     Test.joins(:category).where(categories: {title: category}).order(id: :desc)
   end

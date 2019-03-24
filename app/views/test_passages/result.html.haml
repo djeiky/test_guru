@@ -14,5 +14,12 @@
       = @test_passage.percent
       \%
 
+%h2 Вы заработали бейджи
+- @new_badges.each do |badge|
+  %p
+    = image_tag "#{badge.badge_type.name}.png"
+    = badge.name
+
+
 %p
   = link_to t(".return"), tests_path, class: "btn btn-primary"

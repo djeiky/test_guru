@@ -31,3 +31,6 @@ Answer.create(body: "Programm language") do |a|
   a.question_id = @question.id
 end
 
+BadgeType.find_or_create_by(name: "category")
+BadgeType.find_or_create_by(name: "attempt")
+BadgeType.find_or_create_by(name: "level")

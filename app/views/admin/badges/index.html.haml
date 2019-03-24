@@ -1,0 +1,16 @@
+%h1 Созданные бейджи
+%table.table.table-striped.table-sm
+  %thead
+    %tr
+      %th{scope: "col"}
+        ID
+      %th{scope: "col"}
+      %th{scope: "col"}
+        Название
+      %th{scope: "col"}
+        Тип Бейджа
+      %th{scope: "col", colspan: 3}
+        Действия
+  %tbody
+    = render @badges
+= link_to "Новый бейдж", new_admin_badge_path, class: "btn btn-primary"

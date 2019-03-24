@@ -1,0 +1,14 @@
+= form_with model: [:admin, @badge], local: true do |f|
+  .form-group
+    = render "shared/errors", resource: @badge
+  %p
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  %p
+    = f.collection_select :image, @images, :to_s, :to_s, promt: true, class: "form-control"
+    = f.number_field :level, in: 1..10, class: "form-control"
+
+  %p
+    = f.collection_select :badge_type_id, BadgeType.all, :id, :name, prompt: true, class: "form-control"
+  .actions
+    = f.submit
