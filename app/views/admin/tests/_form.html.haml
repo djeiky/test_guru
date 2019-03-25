@@ -10,4 +10,7 @@
       %br
       = f.collection_select( :category_id, @categories, :id, :title, {prompt: true}, {class: "form-control"})
       %br
+      = f.label :time_to_pass
+      = f.text_field :time_to_pass
+      %br
       = f.submit
