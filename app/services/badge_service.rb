@@ -6,11 +6,13 @@ class BadgeService
   end
 
   def gain_badges
-    Badge.all.map {|badge| send("#{badge.badge_type.name}_badge_check", badge)}.compact
+    new_badges = Badge.all.map {|badge| send("#{badge.badge_type.name}_badge_check", badge)}.compact
+    new_badges.each {|badge| add_badge(badge)}
+    new_badges
   end
 
   def category_badge_check(badge)
-    badge if all_category_passed?(@test)
+    badge if all_category_passed?(@test.category)
   end
 
   def level_badge_check(badge)
@@ -29,14 +31,22 @@ private
   def all_level_passed?(level)
     tests_count = Test.where(level: level).count
     tests_count == 0 ? false :
-      tests_count == @user.completed_tests(level: level).uniq.count
+      tests_count == @user.success_tests.where(level: level).uniq.count
   end
 
-  def all_category_passed?(test)
-    category = Category.find_by(id: test.category_id)
-    tests_count = Test.where(category_id: category.id).count
+  def all_category_passed?(category)
+    tests_count = Test.tests_by_category(category.title).count
     tests_count == 0 ? false :
-      tests_count == @user.completed_tests(category: category).uniq.count
+      tests_count == @user.success_tests.where(category: category).uniq.count
+  end
 
+  def add_badge(badge)
+    user_badge = @user.user_badges.find_by(badge_id: badge.id)
+    if user_badge
+      user_badge.badges_count += 1
+      user_badge.save!
+    else
+      @user.user_badges.create!(badge_id: badge.id)
+    end
   end
 end

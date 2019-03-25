@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_094549) do
+ActiveRecord::Schema.define(version: 2019_03_25_091529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_094549) do
   create_table "user_badges", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "badge_id"
-    t.integer "badges_count"
+    t.integer "badges_count", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_user_badges_on_badge_id"
