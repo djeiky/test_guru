@@ -23,10 +23,6 @@ class User < ApplicationRecord
     tests.where(test_passages: {passed: true})
   end
 
-  def failed_tests
-    tests.where(test_passages: {passed: false})
-  end
-
   def greet_user
     "Hello #{self.last_name.present? ? self.last_name : self.email}"
   end
