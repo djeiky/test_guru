@@ -1,0 +1,27 @@
+%h1 Ваши бейджи
+%table.table.table-striped.table-sm
+  %thead
+    %tr
+      %th{scope: "col"}
+        ID
+      %th{scope: "col"}
+      %th{scope: "col"}
+        Название
+      %th{scope: "col"}
+        Тип Бейджа
+      %th{scope: "col"}
+        Количество
+  %tbody
+    - @user_badges.each do |user_badge|
+      %tr
+        %td
+          = user_badge.id
+        %td
+          = image_tag "#{user_badge.badge.badge_type.name}.png"
+        %td
+          = user_badge.badge.name
+        %td
+          = user_badge.badge.badge_type.name
+        %td
+          = user_badge.badges_count
+

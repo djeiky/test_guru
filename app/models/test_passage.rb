@@ -4,12 +4,12 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_set_next_question, on: :update
 
   PERCENTS_SUCCESS = 85
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.current_question = next_question
     save!
   end
 
@@ -29,13 +29,16 @@ class TestPassage < ApplicationRecord
     test.questions.any? ? test.questions.order(id: :asc).index(current_question) + 1 : 0
   end
 
-private
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
+  def set_passed
+    if success?
+      self.passed = true
+      save!
+    end
   end
 
-  def before_update_set_next_question
-    self.current_question = next_question
+private
+  def before_validation_set_first_question
+    self.current_question = test.questions.order(:id).first if test.present?
   end
 
   def correct_answer?(answer_ids)

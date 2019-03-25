@@ -13,9 +13,15 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :author, class_name: "Test", foreign_key: :author_id
   has_many :gists
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :email, presence: true, uniqueness: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+
+  def success_tests
+    tests.where(test_passages: {passed: true})
+  end
 
   def greet_user
     "Hello #{self.last_name.present? ? self.last_name : self.email}"
