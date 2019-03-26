@@ -18,7 +18,8 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    time_left >= 0 && percent >= PERCENTS_SUCCESS
+    time = test.time_to_pass.nil? || time_left > 0
+    time && percent >= PERCENTS_SUCCESS
   end
 
   def percent
@@ -32,10 +33,6 @@ class TestPassage < ApplicationRecord
   def set_passed
     self.current_question = nil
     self.passed = success? ? true : false
-    
-    #if success?
-    #  self.passed = true
-    #end
     save!
   end
 

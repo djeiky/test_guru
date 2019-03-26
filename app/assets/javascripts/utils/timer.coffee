@@ -1,29 +1,17 @@
 $(document).on 'turbolinks:load', () ->
   $timer = $("#timer")
-  if $timer
+  if $timer.length
     startTimer()
 
 startTimer =  ->
   setInterval =>
-    timer = $("#timer")
-    time_left = timer.text()
-    testPassageId = timer.data("testPassageId")
-    arr = time_left.split(":")
-    h = arr[0]
-    m = arr[1]
-    s = arr[2]
-    if s <= 0
-      if m <= 0
-        if h <= 0
-          window.location = "/test_passages/" + testPassageId + "/result"
-        h--
-        m = 60
-        h = "0" + h if h < 10
-      m--
-      s = 59
-      m = "0" + m if m < 10
+    $timer = $("#timer")
+    time_left = $timer.data("timeLeft")
+    testPassageId = $timer.data("testPassageId")
+    time_left--
+    if time_left <= 0
+      window.location = "/test_passages/" + testPassageId + "/result"
     else
-      s--
-      s = "0" + s if s < 10
-    timer.text(h + ":" + m + ":" + s)
+      $timer.data("timeLeft", time_left)
+      $timer.text(Math.floor(time_left))
   , 1000

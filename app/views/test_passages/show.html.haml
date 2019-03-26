@@ -9,9 +9,11 @@
   %p
     .progress
       .progress-bar{role: "progressbar", style: "width: 0%", aria: {valuenow: 0, valuemin: "0", valuemax: "100"}}
-  %p
-    Оставшееся время:
-    = content_tag :span, Time.at(@test_passage.time_left).utc.strftime("%H:%M:%S"), id: "timer", data: {test_passage_id: @test_passage.id}
+  - if @test_passage.test.time_to_pass
+    %p
+      Оставшееся время:
+      = content_tag :span, @test_passage.time_left, id: "timer", data: {test_passage_id: @test_passage.id, time_left: @test_passage.time_left}
+      секунд
   %p
     = @test_passage.current_question.body
   = form_with url: test_passage_path(@test_passage), local: true, method: :put do |f|
