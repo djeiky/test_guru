@@ -11,6 +11,7 @@ ru:
         level: "Уровень"
         category: "Категория"
         author: "Автор"
+        time_to_pass: "Время для прохождения тетста(сек.)"
       category:
         title: "Категория"
 

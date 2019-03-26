@@ -11,6 +11,7 @@ en:
         level: "Level"
         category: "Category"
         author: "Author"
+        time_to_pass: "Time for test passing(sec)"
       category:
         title: "Category"
 
